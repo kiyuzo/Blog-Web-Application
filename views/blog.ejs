@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories and Blogs</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include("partials/header.ejs") %>
+
+
+    <!-- new post button -->
+    <div class="blogs">
+     <div class="new-post-div">
+        <a class="new-post" href="/blog/new">New Post</a>
+     </div>
+
+    <!-- All blogs -->
+    <div>
+        <div>
+            <% for (let key in blogs) { %>
+            <article class="blog">
+              <div class="blog-main">
+                <h2>
+                  <a href="/blog/<%= key %>"><%= blogs[key].title %></a>
+                </h2>
+                <div>
+                  <span>
+                    <i></i> <%= blogs[key].date %>
+                  </span>
+                  <span>
+                    <i></i> <%= blogs[key].author %>
+                  </span>
+                </div>
+                <div>
+                  <% blogs[key].tags.forEach(function(tag) { %>
+                  <span><i></i> <%= tag %></span>
+                  <% }); %>
+                </div>
+                <p>
+                    <%= blogs[key].content ? blogs[key].content.substring(0, 150) : '' %>
+                </p>
+                <a href="/blog/<%= key %>">
+                  Read More <span>→</span>
+                </a>
+              </div>
+
+              <div class="blog-header">
+                <a
+                  href="/blog/edit/<%= key %>"
+                  title="Edit Post"
+                >
+                <img class="icon" src="icons/edit.png" alt="edit icon">
+                </a>
+                <form
+                  action="/blog/delete/<%= key %>"
+                  method="post"
+                >
+                  <button
+                    class="hide-button"
+                    type="submit"
+                    title="Delete Post"
+                    onclick="return confirm('Are you sure you want to delete this post?');"
+                  >
+                    <img class="icon" src="/icons/trash.png" alt="trash icon">
+                  </button>
+                </form>
+              </div>
+            </article>
+            <% } %>
+          </div>
+    </div>
+  </div>
+
+    <!-- FOOTER -->
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

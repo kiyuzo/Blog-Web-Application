@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Blog</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include("partials/header.ejs") %>
+
+    <!-- CREATE NEW BLOG -->
+     <div>
+        <h1>Create a new blog</h1>
+        <div>
+            <form action="/blog/submit" method="POST">
+                <div>
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required placeholder="please insert the title of your blog">
+                </div>
+                <div>
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" required placeholder="what was your story?"></textarea>
+                </div>
+                <div>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required  value="<%= new Date().toISOString().split('T')[0] %>">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" required placeholder="please insert the author of your blog" value="Rama Pratama">
+                </div>
+                <div>
+                    <label for="tags">Tags</label>
+                    <input type="text" id="tags" name="tags" required placeholder="e.g. food, anime, games">
+                    <small>separate with commas</small>
+                </div>
+                <div>
+                    <button type="submit">Post Blog</button>
+                    <a href="/blog">Cancel</a>
+                </div>
+            </form>
+        </div>
+     </div>
+
+    <!-- FOOTER -->
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

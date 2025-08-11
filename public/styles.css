@@ -1,0 +1,166 @@
+/* Global */
+body {
+  font-family: "Plus Jakarta Sans", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #108190;
+  color: rgb(225, 224, 224);
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 5px;
+  filter: invert(90%);
+}
+
+.hide-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* navbar */
+.nav {
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+}
+
+.nav li {
+  padding: 10px 20px;
+  font-style: none;
+  font-size: 1.25rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgb(225, 224, 224);
+}
+
+/* footer */
+.footer{
+    text-align: center;
+    margin-top: 5rem;
+}
+
+/* Home */
+.home {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.banner-photo{
+    width: 90vw;
+    height: 30rem;
+    object-fit: cover;
+}
+
+.profile-photo {
+    width: 320px;
+    height: 450px;
+    margin-top: 50px;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20rem;
+}
+
+.bio {
+    margin-left: 2rem;
+    text-align: left;
+}
+
+/* about */
+.about {
+  text-align: center;
+  margin: 0 20rem;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-container {
+  display: flex;
+  text-align: left;
+}
+
+.about-me {
+  width: 50rem;
+}
+
+/* Container for projects */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual project box */
+.project {
+  background-color: inherit;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+}
+
+.project p {
+  padding: 15px;
+  font-size: 1.1rem;
+  color: inherit; /* Keep the text color as it is */
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+/* blog */
+.new-post {
+  padding: 10px;
+  background-color: #109079;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.new-post-div {
+  text-align: right;
+  margin: 2rem 0;
+}
+
+.blogs {
+ margin: 0 20rem; 
+}
+
+.blog {
+  background-color: #1d8e9d;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+}
+
+.blog-header {
+ display: flex;
+}
+
+.blog-main {
+  
+}
