@@ -16,33 +16,39 @@
     <%- include("partials/header.ejs") %>
 
     <!-- BLOG -->
-     <div>
-        <h1> <%= blog.title %></h1>
-        <div>
-            <span><%= blog.date %></span>
-            <span><%= blog.author %></span>
+    <div class="blogs">
+        <div class="blog-content">
+            <h1><%= blog.title %></h1>
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> <%= blog.date %></span>
+                <span><i class="fas fa-user"></i> <%= blog.author %></span>
+            </div>
+            <div class="blog-tags">
+                <% blog.tags.forEach(function(tag) { %>
+                    <span class="tag"><i class="fas fa-tag"></i> <%= tag %></span>
+                <% }); %>
+            </div>
+            <p class="blog-text"><%= blog.content %></p>
+            
+            <!-- Edit and Delete buttons -->
+            <div class="blog-actions">
+                <a href="/blog/edit/<%= blogId %>" title="Edit Post" class="btn-secondary">
+                    <img class="icon" src="/icons/edit.png" alt="edit icon">
+                    Edit
+                </a>
+                <form action="/blog/delete/<%= blogId %>" method="post" style="display: inline;">
+                    <button type="submit" title="Delete Post" class="btn-danger" onclick="return confirm('Are you sure you want to delete this post?');">
+                        <img class="icon" src="/icons/trash.png" alt="trash icon">
+                        Delete
+                    </button>
+                </form>
+            </div>
         </div>
-        <% blog.tags.forEach(function(tag) { %>
-            <span class="tag"><i class="fas fa-tag"></i> <%= tag %></span>
-            <% }); %>
-        <p><%= blog.content %></p>
-        
-        <!-- Edit and Delete buttons -->
-        <div>
-            <a href="/blog/edit/<%= blogId %>" title="Edit Post">
-                <img class="icon" src="/icons/edit.png" alt="edit icon">
-                Edit
-            </a>
-            <form action="/blog/delete/<%= blogId %>" method="post" style="display: inline;">
-                <button type="submit" title="Delete Post" onclick="return confirm('Are you sure you want to delete this post?');">
-                    <img class="icon" src="/icons/trash.png" alt="trash icon">
-                    Delete
-                </button>
-            </form>
-        </div>
-     </div>
 
-     <a href="/blog">Back to blogs</a>
+        <div class="blog-navigation">
+            <a href="/blog" class="btn-primary">← Back to blogs</a>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <%- include("partials/footer.ejs") %>

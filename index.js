@@ -102,12 +102,13 @@ app.get("/blog/:blogId", (req, res) => {
 });  
 
 app.get("/blog/edit/:blogId", (req, res) => {
-    const blog = blogs[req.params.blogId];
+    const blogId = req.params.blogId;
+    const blog = blogs[blogId];
     if (!blog) {
       res.status(404).send("blog not found");
       return;
     }
-    res.render("edit.ejs", { blog });
+    res.render("edit.ejs", { blog, blogId });
   });
 
 app.post("/blog/update/:blogId", (req, res) => {
